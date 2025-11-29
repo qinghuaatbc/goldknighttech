@@ -1,0 +1,117 @@
+ion-content {
+  --padding-top: var(--status-bar-height);
+}
+
+ion-content.ios {
+  --padding-top: var(--ion-safe-area-top);
+}
+
+/* ion-buttons {
+  margin-top: calc(var(--status-bar-height) + 8px);
+  margin-left: 8px;
+}
+
+.ios ion-buttons {
+  margin-top: calc(var(--ion-safe-area-top) + 8px);
+} */
+
+ion-img {
+  height: 320px;
+  // width: 1000px;
+  padding: 0px 16px;
+  margin-top: var(--status-bar-height);
+  object-fit: cover;
+  // mainly web desktop, tablet etc.
+  @media (min-width: 480px) {
+    object-fit: scale-down; // this works on bigger device better
+  }
+}
+
+.ios ion-img {
+  margin-top: var(--ion-safe-area-top);
+}
+
+.title {
+  font-size: 20px;
+  font-family: WorkSans-Bold;
+  margin-top: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-family: WorkSans-Regular;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  margin: 48px 0px;
+
+  ion-button {
+    text-transform: none;
+    font-family: WorkSans-Medium;
+    min-width: 140px;
+    min-height: 40px;
+    --background: rgb(33, 150, 243);
+    --border-radius: 4px;
+    --box-shadow: 4px 4px 8px 0px var(--shadow-color2);
+  }
+}
+
+.slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      animation: slide 30s infinite;
+    }
+
+.css-slider {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 40vh;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+.slide {
+      min-width: 100%;
+      position: relative;
+    }
+ ion-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+@keyframes slide {
+      0%, 20% { transform: translateX(0); }
+      20%, 40% { transform: translateX(-100%); }
+      40%, 60% { transform: translateX(-200%); }
+      60%, 80% { transform: translateX(-300%); }
+      80%, 100% { transform: translateX(-400%); }
+    }
+
+    /* 动态圆点高亮（CSS 变量） */
+    .css-slider:hover .slides { animation-play-state: paused; }
+    .css-slider:hover .dot { animation-play-state: paused; }
+
+.spacer {
+  height: 48px; /* 或 48px、64px */
+}
+
+ion-title {
+  font-size: 22px;
+  font-family: WorkSans-Bold;
+  color: var(--color-darkText);
+}
+
+ion-title.md {
+  text-align: center;
+  margin-left: 48px; // menu icon space
+}

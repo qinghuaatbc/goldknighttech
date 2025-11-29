@@ -1,0 +1,57 @@
+
+<ion-header class="ion-no-border">
+    <meta name="apple-mobile-web-app-capable" content="no">
+
+  <ion-toolbar>
+
+     <ion-title>Demo</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="dark"></ion-button>
+    </ion-buttons>
+   
+   
+      
+   
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<div #threeContainer  style="width:100%; height:100%"></div>
+  </ion-content>
+   
+   <!-- (click)="selectAvatar(1)"
+      [class.active]="selected === 1"> -->
+
+   <div class="avatar-row">
+   
+   <ion-toggle  unchecked color="warning"  
+   (ionChange)="onToggleLabel($event)"></ion-toggle>
+    
+   <ion-img 
+      src="assets/light/light_icon.jpg"
+      (click)="showViewLightModal()" >
+    </ion-img>
+    
+    <ion-img 
+      src="assets/light/door_icon.jpg"
+      
+      (click)="showViewDoorModal()" >
+    </ion-img>
+
+    <ion-img 
+      src="assets/music/music_icon.jpg" 
+      (click)="showViewMusicModal()">
+    </ion-img>
+
+    <ion-img 
+      src="assets/blind/blind.jpg" 
+      (click)="showViewBlindModal()">
+    </ion-img>
+      <ion-img 
+      src="assets/glb/swap.png" 
+      (click)="swap()">
+    </ion-img>
+
+  </div>
+

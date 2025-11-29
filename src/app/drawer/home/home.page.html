@@ -1,0 +1,84 @@
+<ion-header class="ion-no-border">
+
+  <ion-toolbar>
+
+ <ion-title>Home</ion-title>
+    <!-- <ion-buttons slot="start">
+      <ion-button color="dark"></ion-button>
+    </ion-buttons> -->
+   
+  
+      
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-buttons slot="fixed"> -->
+    <!-- <ion-menu-button color="dark"></ion-menu-button> -->
+  <!-- </ion-buttons> -->
+  
+    <div class="css-slider">
+      <div class="slides">
+        <div class="slide" *ngFor="let img of images; let i = index">
+          <ion-img [src]="img.src" [alt]="img.alt" loading="lazy"></ion-img>
+          
+        </div>
+      </div>
+      </div>
+
+  <div style="display: flex; flex-direction: column">
+    <!-- <ion-label class="title">Gold Knight Tech</ion-label>
+    <ion-label class="subtitle">
+       </ion-label> -->
+       <!-- <ion-item>
+
+
+       </ion-item> -->
+     <!-- <app-floor3d-ha></app-floor3d-ha> -->
+  
+  <ion-card>
+ 
+  <ion-card-content style="font-size: 18px; font-weight: 600;">
+    TechGold Knight Tech is a premier innovator in smart home solutions,  dedicated to 
+    transforming everyday living spaces into secure, seamless, and entertaining environments. 
+    Specializing in home automation, audio-video home theater systems, security cameras, 
+    and intercom solutions, we deliver cutting-edge technology that combines elegance, reliability, and user-friendly 
+     control.Founded on the principles of innovation and customer empowerment, Gold Knight Tech 
+     empowers homeowners and businesses to orchestrate their environments with effortless precision.
+     <br><br>
+
+     Our home automation platforms integrate 
+      lighting, climate, appliances, and entertainment into a single intuitive app or
+       voice-controlled hub. Immerse yourself in cinematic experiences with our bespoke 
+       audio-video home theater designs, featuring high-fidelity sound systems, 4K/8K 
+       projectors, and ambient lighting synchronization.Security is at our core:
+        Our advanced security camera networks offer AI-powered detection, real-time alerts, 
+        night vision, and cloud storage for unparalleled peace of mind. Complementing this, 
+        our state-of-the-art intercom systems enable crystal-clear communication, video
+         doorbells, and remote access, ensuring connectivity without compromise.
+         <br><br>
+
+         At Gold Knight Tech,    we don't just install products—we craft personalized
+          ecosystems backed by expert consultation,  professional installation, and 
+          ongoing support. Elevate your home with the golden standard in 
+         smart technology. Discover the future today.<br><br>
+
+         As RTI's trusted Vancouver dealer, we've powered hundreds of high-end installs.
+          Check out our portfolio at goldknighttech.wep.app for local examples. Questions?
+           Reply here or call—we love geeking out over smart lights!
+
+
+
+  </ion-card-content>
+</ion-card>
+  
+  
+    </div>
+
+  <!-- style="position: absolute; bottom: 0; left: 0; right: 0; top: 70%" -->
+  <div class="btnContainer">
+    <ion-button>Chat with us</ion-button>
+  </div>
+
+</ion-content>

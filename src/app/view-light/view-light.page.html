@@ -1,0 +1,33 @@
+
+
+
+
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Light</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+ 
+  <ion-list>
+   <ion-item *ngFor="let lamp of lampWithOns"  >
+    <ion-label >{{ lamp.mesh.name}}</ion-label>
+
+   <ion-range min="0" max="50" step="2" [(ngModel)]="lamp.level"
+   (ionChange)="onLevelChange(lamp,$event)"></ion-range>
+    
+   <ion-toggle 
+    slot="end" 
+   [(ngModel)]="lamp.isOn"
+    (ionChange)="onLampToggle(lamp)">
+  </ion-toggle>
+   </ion-item>
+  </ion-list>
+
+  
+
+</ion-content>

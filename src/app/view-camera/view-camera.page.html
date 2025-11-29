@@ -1,0 +1,36 @@
+
+
+
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Camera</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- <h2>This is a half-page modal</h2>
+  <p>With transparent blurred backdrop!</p>
+
+  <ion-list>
+    <ion-item>Option 1</ion-item>
+    <ion-item>Option 2</ion-item>
+    <ion-item>Option 3</ion-item>
+  </ion-list> -->
+<ion-content class="ion-padding">
+  <video 
+    controls 
+    autoplay
+    loop
+    playsinline 
+    webkit-playsinline 
+    preload="metadata"
+    poster="https://your-domain.com/thumbnail.jpg"
+    class="video-player">
+    <source src="{{url}}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Door</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+ 
+  <ion-list>
+   <ion-item *ngFor="let door of doorWithOpens"  >
+    <ion-label >{{ door.mesh.name}}</ion-label>
+  
+    <ion-toggle 
+    slot="end" 
+   [(ngModel)]="door.isOpen"
+    (ionChange)="onDoorToggle(door.mesh)">
+  </ion-toggle>
+   </ion-item>
+  </ion-list>
+
+  
+
+</ion-content>

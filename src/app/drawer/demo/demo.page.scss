@@ -1,0 +1,105 @@
+
+
+
+
+
+// .transparent-modal {
+//   --background: transparent !important;     // 整个 modal 背景透明
+//   --backdrop-opacity: 0 !important;         // 完全去掉灰色遮罩
+// }
+
+// .transparent-modal .modal-wrapper {
+//   background: #ffffff;        // 内容区域白底（关键！）
+//   border-radius: 20px;
+//   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+//   overflow: hidden;
+// }
+
+
+
+
+
+ion-toolbar {
+  --background: white;
+
+  @media (prefers-color-scheme: dark) {
+    --background: var(--ion-background-color);
+  }
+}
+
+.md ion-toolbar {
+  --padding-top: var(--status-bar-height);
+}
+
+ion-title {
+  font-size: 22px;
+  font-family: WorkSans-Bold;
+  color: var(--color-darkText);
+}
+
+ion-title.md {
+  text-align: center;
+  margin-left: 48px; // menu icon space
+}
+
+
+.avatar-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding-block: 6px;
+}
+
+.avatar-row ion-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;           /* makes it circle */
+  overflow: hidden;             /* THIS WAS MISSING – fixes the corners! */
+  object-fit: cover;            /* ensures image fills nicely */
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.avatar-row ion-img.active {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;   
+  border: 4px solid var(--ion-color-primary);
+  box-shadow: 0 0 20px rgba(56, 128, 255, 0.5);
+}
+
+ion-content {
+  --padding-top: var(--status-bar-height);
+}
+
+ion-content.ios {
+  --padding-top: var(--ion-safe-area-top);
+}
+
+.spacer {
+  height: 48px; /* 或 48px、64px */
+}
+
+.transparent-modal {
+  --background: transparent;          // modal background
+  --ion-background-color: transparent;
+
+  // If you want the backdrop completely invisible too
+  --backdrop-opacity: 0;
+
+  // Optional: round corners only on the card
+  --border-radius: 20px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+ #three-container1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible !important;   /* ← THIS LINE IS CRUCIAL */
+  }

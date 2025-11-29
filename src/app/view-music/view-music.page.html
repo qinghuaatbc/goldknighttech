@@ -1,0 +1,40 @@
+
+
+
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Music</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+ 
+  <ion-list>
+   <ion-item *ngFor="let music of musicWithOns"  >
+    <ion-label >{{ music.mesh.name}}</ion-label>
+  
+    <ion-toggle 
+    slot="end" 
+   [(ngModel)]="music.isOn"
+    (ionChange)="onMusicToggle(music.mesh)">
+  </ion-toggle>
+   </ion-item>
+  </ion-list>
+   
+  <!-- <video #videoPlayer
+    controls 
+   
+    loop
+    playsinline 
+    webkit-playsinline 
+    preload="metadata"
+    poster="https://your-domain.com/thumbnail.jpg"
+    class="video-player">
+    <source src="assets/music/The_Prayer.mp3" type="audio/mpeg">
+    Your browser does not support the video tag.
+</video> -->
+
+</ion-content>

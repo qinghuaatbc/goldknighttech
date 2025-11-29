@@ -1,0 +1,34 @@
+/* Put this in global.scss or your page.scss */
+
+.half-modal {
+  --height: 50%;                  // or 60%, 450px, etc.
+  --width: 100%;
+  --border-radius: 20px 20px 0 0; // rounded top corners
+  --box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Transparent backdrop (clear background) */
+.half-modal::part(backdrop) {
+  background: rgba(0, 0, 0, 0.2);   // very light or use transparent
+  backdrop-filter: blur(10px);      // beautiful blur effect (iOS style)
+}
+/* Optional: center the modal vertically when small */
+@media (min-height: 500px) {
+  .half-modal {
+    align-self: flex-end;   // sticks to bottom
+  }
+}
+
+/* If you want it truly transparent (no dark overlay at all) */
+.transparent-backdrop::part(backdrop) {
+  background: transparent !important;
+}
+
+/* video-player.page.scss */
+.video-player {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #000;
+}
