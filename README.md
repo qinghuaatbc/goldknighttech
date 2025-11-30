@@ -21,8 +21,7 @@ follow below steps to run project locally
 
 ```bash
 # clone the project and cd into it
-git clone https://github.com/Aashu-Dubey/Ionic-UI-Templates.git
-cd ./Ionic-UI-Templates/ionic_ui_templates
+
 
 # install dependencies
 npm install
