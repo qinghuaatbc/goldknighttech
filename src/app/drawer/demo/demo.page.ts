@@ -883,13 +883,15 @@ const modal = await this.modalCtrl.create({
  
 
 changeModel(modelKey: string) {
+
  //this.clearArrayMap()
   this.selectedModel = modelKey;
   this.loadSelectedModel();
 }
 
   swap():void{
-  
+
+
   if (this.selectedModel==='l1')
     
    {this.selectedModel = "l2"
@@ -954,7 +956,7 @@ adddSphereBall(model:THREE.Group,obj:THREE.Mesh,radius:number,offsetX:number,off
     
      // obj.add(sphere)
           model.add(sphere);
-      this.spheres.forEach(sphere=>{sphere.visible = false}) 
+      this.spheres.forEach(sphere=>{sphere.visible = this.isLabelOn}) 
          
       }   
 
@@ -962,30 +964,12 @@ adddSphereBall(model:THREE.Group,obj:THREE.Mesh,radius:number,offsetX:number,off
   onToggleLabel(event: CustomEvent) {
   this.isLabelOn= event.detail.checked;  // true/false
   const value = event.detail.value;        // same as checked
-  
+        this.spheres.forEach(sphere=>{sphere.visible = this.isLabelOn}) 
+
   console.log('Toggle changed to:', this.isLabelOn);
   
-  // Your logic here
-  if (this.isLabelOn) {
-    // Enable something (e.g., show sphere)
-    this.spheres.forEach(sphere=>{sphere.visible = false})   
-    this.spheres.forEach(sphere=>
-        {
-            
-       if (this.sphereWithSelects.get(sphere) == this.selectedModel)
-        sphere.visible = true }
-      )  
-    }
-     else {
   
-
-       this.spheres.forEach(sphere=>{
-        
-        if (this.sphereWithSelects.get(sphere) == this.selectedModel)
-        sphere.visible = false})
-     
-
-    }}
+}
   
   
   
