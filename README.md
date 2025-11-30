@@ -1,4 +1,4 @@
-# Ionic UI Templates
+# Gold knight tech
 
 This is Project's starting point.
 
@@ -21,8 +21,7 @@ follow below steps to run project locally
 
 ```bash
 # clone the project and cd into it
-git clone https://github.com/Aashu-Dubey/Ionic-UI-Templates.git
-cd ./Ionic-UI-Templates/ionic_ui_templates
+
 
 # install dependencies
 npm install
@@ -42,6 +41,7 @@ or Run 'ionic capacitor open android' and run through Android Studio
 ```
 
 ### 🍎📱 iOS
+hello git
 
 Make sure you have required native iOS setup.<br />
 You don't really need to add an account to run on simulator.
