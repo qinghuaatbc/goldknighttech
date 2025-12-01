@@ -949,7 +949,13 @@ adddSphereBall(model:THREE.Group,obj:THREE.Mesh,radius:number,offsetX:number,off
 
       const label = new CSS2DObject(div);
       label.position.set(0,0,0); // above the sphere
-       sphere.add(label)
+       
+      if (obj.name.includes('FRONT_DOOR') || 
+           obj.name.includes ('MUSIC') ||
+          obj.name.includes ('BLIND')  ||
+          obj.name.includes ('GARAGE')  ||
+          obj.name.includes ('LIGHT')   )
+      sphere.add(label)
        
       this.spheres.push(sphere)
       this.sphereWithSelects.set(sphere,this.selectedModel)
