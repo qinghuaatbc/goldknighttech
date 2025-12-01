@@ -64,7 +64,7 @@ selectedModel = "l1"
   private controls!: OrbitControls;
   private raycaster = new THREE.Raycaster();
   private mouse = new THREE.Vector2();
-  private model!:any
+ // private model!:any
   private sphereRadius = 0
   private spheres:THREE.Mesh[]=[]
   private sphereWithSelects = new Map<THREE.Mesh,string>()
@@ -102,6 +102,7 @@ selectedModel = "l1"
 
   private width_1=0;
   private hight_1=0
+  isLabelOn = false
 
   // private readonly MODEL_PATH = 'assets/glb/940leovista015.glb'; // ← Your converted GLB
   // private modelUrls: string [] = []
@@ -236,26 +237,25 @@ async  loadSelectedModel() {
      
       // this.MODEL_PATH,
       (gltf) => {
-        this.model = gltf.scene;
-        const box = new THREE.Box3().setFromObject(this.model);
+        const model = gltf.scene;
+        const box = new THREE.Box3().setFromObject(model);
              const size = box.getSize(new THREE.Vector3()).length();
              const center = box.getCenter(new THREE.Vector3());
-             this.model.position.copy(center.multiplyScalar(-0.1));
-            this.model.scale.setScalar((this.width_1/51
+             model.position.copy(center.multiplyScalar(-0.1));
+             model.scale.setScalar((this.width_1/51
             )/ size);
             //  if (this.width_1 > this.hight_1)
             //   this.originY = -3
             //  else
             //   this.originY =+4
            
-            this.model.position.set(0,this.originY,0)
+            model.position.set(0,this.originY,0)
        
-        this.scene.add(this.model);
+       // this.scene.add(model);
 
-        this.model.traverse((obj: any) => {
+        model.traverse((obj: any) => {
           if (obj.isMesh) {
             const name = (obj.name || '').toLowerCase();
-          //  console.log(name)
             const isLamp = /light|lamp/.test(name) || obj.userData?.isLight;
             const isDoor = /door|DOOR/.test(name) || obj.userData?.isDoor;
              const isCamera = /suveilance|camera/.test(name) || obj.userData?.isDoor;
@@ -267,7 +267,7 @@ async  loadSelectedModel() {
              if (isGarage){
                this.garages.push(obj)
                this.garageUps.set(obj,false)
-                this.adddSphereBall(obj,0.6,0,0,0)      
+                this.adddSphereBall(model,obj,0.6,0,0,0)      
               
                
             }
@@ -276,7 +276,7 @@ async  loadSelectedModel() {
                this.doors.push(obj)
                this.doorOpens.set(obj,{isOn:false,selectedModel:this.selectedModel})
                
-              this.adddSphereBall(obj,0.6,0,0,0)
+              this.adddSphereBall(model,obj,0.6,0,0,0)
 
               
               
@@ -288,7 +288,7 @@ async  loadSelectedModel() {
                this.blindUps.set(obj,{isOn:false,selectedModel:this.selectedModel})
                console.log(this.blindUps)
               //add sphere ball
-              this.adddSphereBall(obj,0.6,0,0,0)
+              this.adddSphereBall(model,obj,0.6,0,0,0)
                
             }
 
@@ -296,7 +296,7 @@ async  loadSelectedModel() {
 
               this.cameras.push(obj)
               //add sphere ball
-            this.adddSphereBall(obj,0.6,0,0,0)
+            this.adddSphereBall(model,obj,0.6,0,0,0)
              
                
             }
@@ -313,11 +313,11 @@ async  loadSelectedModel() {
               spotLight.angle = Math.PI / 1.5; // 30° cone
              // spotLight.intensity = 0
              console.log(obj.position.y,obj.position.z)
-              this.model.add(spotLight)
+              model.add(spotLight)
 
               this.spotlighWithLamps.set(obj,spotLight)
 
-               this.adddSphereBall(obj,0.6,0,0,0)
+               this.adddSphereBall(model,obj,0.6,0,0,0)
 
 
               const mat = Array.isArray(obj.material) ? obj.material[0] : obj.material;
@@ -340,11 +340,11 @@ async  loadSelectedModel() {
               spotLight.angle = Math.PI / 1.5; // 30° cone
              // spotLight.intensity = 0
            
-              this.model.add(spotLight)
+              model.add(spotLight)
 
               this.spotlighWithMusics.set(obj,spotLight)
              //add a sphere tranarent call]
-              this.adddSphereBall(obj,0.6,0,0,0)
+              this.adddSphereBall(model,obj,0.6,0,0,0)
 
 
 
@@ -364,9 +364,9 @@ async  loadSelectedModel() {
        // this.fitCameraToModel(model);
         this.onResize(); // Final resize after model loads
  // Cache it
-        this.modelCache[modelKey] = this.model;
+        this.modelCache[modelKey] = model;
 
-        this.swapModel(this.model);
+        this.swapModel(model);
         this.loading = false;
 
       },
@@ -725,7 +725,7 @@ public toggleMusic(music: THREE.Mesh) {
    
 }
   private fitCameraToModel(model: THREE.Object3D) {
-     const box = new THREE.Box3().setFromObject(this.model);
+     const box = new THREE.Box3().setFromObject(model);
   const center = box.getCenter(new THREE.Vector3());
   const size = box.getSize(new THREE.Vector3());
   const distance = Math.max(size.x, size.z) * 2.5;
@@ -883,13 +883,15 @@ const modal = await this.modalCtrl.create({
  
 
 changeModel(modelKey: string) {
+
  //this.clearArrayMap()
   this.selectedModel = modelKey;
   this.loadSelectedModel();
 }
 
   swap():void{
-  
+
+
   if (this.selectedModel==='l1')
     
    {this.selectedModel = "l2"
@@ -915,7 +917,7 @@ changeModel(modelKey: string) {
 
 
 
-adddSphereBall(obj:THREE.Mesh,radius:number,offsetX:number,offsetY:number,offsetZ:number){
+adddSphereBall(model:THREE.Group,obj:THREE.Mesh,radius:number,offsetX:number,offsetY:number,offsetZ:number){
 
 
              //add sphere ball
@@ -928,8 +930,7 @@ adddSphereBall(obj:THREE.Mesh,radius:number,offsetX:number,offsetY:number,offset
                   obj.position.y+offsetY,obj.position.z+offsetZ);
                  sphere.name = obj.name
                 
-            obj.add(sphere)
-              this.model.add(sphere);
+            
 
              console.log(obj.name)
        
@@ -948,41 +949,27 @@ adddSphereBall(obj:THREE.Mesh,radius:number,offsetX:number,offsetY:number,offset
 
       const label = new CSS2DObject(div);
       label.position.set(0,0,0); // above the sphere
-      sphere.add(label)
+       sphere.add(label)
+       
       this.spheres.push(sphere)
       this.sphereWithSelects.set(sphere,this.selectedModel)
     
-       this.spheres.forEach(sphere=>{sphere.visible = false})       
+     // obj.add(sphere)
+          model.add(sphere);
+      this.spheres.forEach(sphere=>{sphere.visible = this.isLabelOn}) 
+         
+      }   
 
-}
 
   onToggleLabel(event: CustomEvent) {
-  const isChecked = event.detail.checked;  // true/false
+  this.isLabelOn= event.detail.checked;  // true/false
   const value = event.detail.value;        // same as checked
-  
-  console.log('Toggle changed to:', isChecked);
-  
-  // Your logic here
-  if (isChecked) {
-    // Enable something (e.g., show sphere)
-    this.spheres.forEach(sphere=>{sphere.visible = false})   
-    this.spheres.forEach(sphere=>
-        {
-            
-        if (this.sphereWithSelects.get(sphere) == this.selectedModel)
-        sphere.visible = true }
-      )  
-    }
-     else {
-  
+        this.spheres.forEach(sphere=>{sphere.visible = this.isLabelOn}) 
 
-       this.spheres.forEach(sphere=>{
-        
-        if (this.sphereWithSelects.get(sphere) == this.selectedModel)
-        sphere.visible = false})
-     
-
-    }}
+  console.log('Toggle changed to:', this.isLabelOn);
+  
+  
+}
   
   
   

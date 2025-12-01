@@ -49,7 +49,7 @@
       (click)="showViewBlindModal()">
     </ion-img>
       <ion-img 
-      src="assets/glb/swap.png" 
+      src="assets/glb/swap.png" *ngIf = "!isLabelOn"
       (click)="swap()">
     </ion-img>
 

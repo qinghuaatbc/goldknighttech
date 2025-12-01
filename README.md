@@ -1,4 +1,4 @@
-# Ionic UI Templates
+# Gold knight tech
 
 This is Project's starting point.
 
@@ -41,6 +41,7 @@ or Run 'ionic capacitor open android' and run through Android Studio
 ```
 
 ### 🍎📱 iOS
+hello git
 
 Make sure you have required native iOS setup.<br />
 You don't really need to add an account to run on simulator.
