@@ -1,0 +1,47 @@
+{
+  "language": "Language",
+  "nav": { "home": "Home", "demo": "3D Demo", "services": "Services", "about": "About", "contact": "Contact", "admin": "Admin" },
+  "home": {
+    "badge": "Vancouver's Premier Smart Home Experts",
+    "title": "Intelligent Home Automation",
+    "subtitle": "Security, lighting, audio, and climate — all seamlessly integrated. Greater Vancouver's trusted smart home team since 2014.",
+    "explore": "Explore Services", "quote": "Get a Free Quote",
+    "stats": { "homes": "Homes Secured", "years": "Years Experience", "support": "Support", "happy": "Satisfaction" },
+    "quickLinks": { "services": "Our Services", "servicesDesc": "Full range of automation solutions", "demo": "3D Interactive Demo", "demoDesc": "Explore your smart home in 3D", "story": "Our Story", "storyDesc": "Learn about Gold Knight Tech" },
+    "featuresTitle": "Everything Your Smart Home Needs",
+    "featuresSub": "Professional-grade automation for modern living",
+    "ctaTitle": "Ready to Transform Your Home?",
+    "ctaSub": "Free consultation. Let's build your perfect smart home.",
+    "ctaBtn": "Get Your Free Quote"
+  },
+  "services": {
+    "badge": "Premium Services", "title": "Our Services", "subtitle": "Comprehensive home automation solutions for modern living",
+    "includes": "What's Included",
+    "ctaTitle": "Ready to Transform Your Home?", "ctaSub": "Free consultation and quote.", "ctaBtn": "Free Quote"
+  },
+  "about": {
+    "badge": "Our Story", "title": "About Gold Knight Tech", "subtitle": "Vancouver's trusted smart home partner since 2014",
+    "sectionTitle": "Vancouver's Smart Home Experts",
+    "p1": "Gold Knight Tech brings professional-grade home automation to homeowners across Greater Vancouver. We design and install comprehensive smart home systems integrating security, lighting, climate, and entertainment.",
+    "p2": "Our team specializes in alarm systems (DSC, Vista, Honeywell), home networking, audio/video distribution, and custom automation. Every installation is tailored to each home's unique needs.",
+    "p3": "We use quality equipment, provide professional installation, and deliver ongoing support for years of flawless performance.",
+    "chooseTitle": "Why Choose Us",
+    "items": { "expert": "Expert Installation", "expertDesc": "Certified technicians with years of experience", "quality": "Premium Quality", "qualityDesc": "Industry-leading brands you can trust", "custom": "Custom Solutions", "customDesc": "Systems tailored to your lifestyle", "support": "Ongoing Support", "supportDesc": "Responsive support whenever you need", "integration": "Full Integration", "integrationDesc": "Seamless whole-home connectivity", "peace": "Peace of Mind", "peaceDesc": "24/7 monitoring with real-time alerts" },
+    "ctaTitle": "Ready to Get Started?", "ctaSub": "Free consultation for your home automation project.", "ctaBtn": "Contact Us"
+  },
+  "contact": {
+    "badge": "Get in Touch", "title": "Contact Us", "subtitle": "Ready to make your home smarter? We're here to help.",
+    "email": "Email", "phone": "Phone", "area": "Service Area", "areas": "Service Areas",
+    "formTitle": "Send a Message", "formSub": "Fill out and we'll get back to you shortly.",
+    "name": "Name", "emailLabel": "Email", "phoneLabel": "Phone", "message": "Message", "send": "Send Message",
+    "thankYou": "Thank You!", "thankYouSub": "We'll get back to you within 24 hours."
+  },
+  "demo": {
+    "badge": "Interactive Demo", "title": "3D Home Visualization", "subtitle": "Explore rooms, click to interact with your smart home",
+    "selectedZone": "Selected Zone", "systemOnline": "System Online",
+    "feature1": "3D Room Navigation", "feature1Desc": "Drag to rotate, click to interact with any room in your home.",
+    "feature2": "Smart Zone Control", "feature2Desc": "Click rooms to see connected smart devices and their status.",
+    "feature3": "Real-time Status", "feature3Desc": "Monitor home security and automation status at a glance."
+  },
+  "footer": { "tagline": "Smart home automation solutions for modern living. Serving Greater Vancouver since 2014.", "navigate": "Navigate", "contact": "Contact" }
+}

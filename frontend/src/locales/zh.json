@@ -1,0 +1,47 @@
+{
+  "language": "语言",
+  "nav": { "home": "首页", "demo": "3D演示", "services": "服务", "about": "关于", "contact": "联系", "admin": "管理" },
+  "home": {
+    "badge": "温哥华顶级智能家居专家",
+    "title": "智能家居自动化",
+    "subtitle": "安防、灯光、影音、温控 — 无缝集成。自2014年以来温哥华值得信赖的智能家居团队。",
+    "explore": "探索服务", "quote": "获取免费报价",
+    "stats": { "homes": "已服务家庭", "years": "年经验", "support": "全天候支持", "happy": "满意度" },
+    "quickLinks": { "services": "我们的服务", "servicesDesc": "全套自动化解决方案", "demo": "3D互动演示", "demoDesc": "3D探索您的智能家居", "story": "我们的故事", "storyDesc": "了解Gold Knight Tech" },
+    "featuresTitle": "智能家居所需一切",
+    "featuresSub": "专业级自动化，打造现代生活",
+    "ctaTitle": "准备好改造您的家了吗？",
+    "ctaSub": "免费咨询，打造您的完美智能家居。",
+    "ctaBtn": "获取免费报价"
+  },
+  "services": {
+    "badge": "优质服务", "title": "我们的服务", "subtitle": "全面的智能家居自动化解决方案",
+    "includes": "服务内容",
+    "ctaTitle": "准备好改造您的家了吗？", "ctaSub": "免费咨询和报价。", "ctaBtn": "免费报价"
+  },
+  "about": {
+    "badge": "我们的故事", "title": "关于Gold Knight Tech", "subtitle": "自2014年以来温哥华值得信赖的智能家居合作伙伴",
+    "sectionTitle": "温哥华的智能家居专家",
+    "p1": "Gold Knight Tech 为温哥华地区的家庭带来专业级智能家居自动化。我们设计和安装全面的智能家居系统，集成安防、灯光、温控和娱乐。",
+    "p2": "我们的团队专注于报警系统（DSC、Vista、Honeywell）、家庭网络、音视频分配和定制自动化。每次安装都根据每个家庭的独特需求量身定制。",
+    "p3": "我们使用优质设备，提供专业安装和持续支持，确保多年无故障运行。",
+    "chooseTitle": "为什么选择我们",
+    "items": { "expert": "专业安装", "expertDesc": "持证技师，多年经验", "quality": "优质品质", "qualityDesc": "值得信赖的行业领先品牌", "custom": "定制方案", "customDesc": "根据您的生活方式量身定制", "support": "持续支持", "supportDesc": "随时为您提供响应式支持", "integration": "全面集成", "integrationDesc": "无缝的全屋连接", "peace": "安心无忧", "peaceDesc": "24/7实时监控与警报" },
+    "ctaTitle": "准备好开始了吗？", "ctaSub": "免费咨询您的智能家居项目。", "ctaBtn": "联系我们"
+  },
+  "contact": {
+    "badge": "联系我们", "title": "联系我们", "subtitle": "准备好让您的家更智能了吗？我们随时提供帮助。",
+    "email": "邮箱", "phone": "电话", "area": "服务区域", "areas": "服务区域",
+    "formTitle": "发送消息", "formSub": "填写表格，我们会尽快回复。",
+    "name": "姓名", "emailLabel": "邮箱", "phoneLabel": "电话", "message": "留言", "send": "发送消息",
+    "thankYou": "谢谢！", "thankYouSub": "我们将在24小时内回复您。"
+  },
+  "demo": {
+    "badge": "互动演示", "title": "3D家居可视化", "subtitle": "探索房间，点击与您的智能家居互动",
+    "selectedZone": "选中区域", "systemOnline": "系统在线",
+    "feature1": "3D房间导航", "feature1Desc": "拖拽旋转，点击与家中任何房间互动。",
+    "feature2": "智能区域控制", "feature2Desc": "点击房间查看连接的智能设备及状态。",
+    "feature3": "实时状态", "feature3Desc": "一目了然地监控家居安防和自动化状态。"
+  },
+  "footer": { "tagline": "智能家居自动化解决方案，服务现代生活。自2014年起服务温哥华地区。", "navigate": "导航", "contact": "联系" }
+}
