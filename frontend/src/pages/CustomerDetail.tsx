@@ -114,15 +114,36 @@ export default function CustomerDetail() {
 
   const sendEmail = () => {
     if (!customer) return
-    const zones = customer.zones?.map((z:any)=>`  ${z.zone_key}: ${z.description}`).join('\n')||''
-    const body = `Gold Knight Tech - Customer Report\n\nAddress: ${customer.address_line}\nCity: ${customer.city}\nPanel: ${customer.alarm_panel}\n\nZones:\n${zones}`
+    // First download the PDF
+    generatePDF()
+    const zoneCount = customer.zones?.length || 0
+    const body = `Dear Client,
+
+Thank you for choosing Gold Knight Tech, Vancouver's trusted smart home partner since 2014.
+
+Please find attached the customer report for ${customer.address_line} (${customer.city}).
+
+Report Summary:
+- Address: ${customer.address_line}
+- City: ${customer.city}
+- Alarm System: ${customer.alarm_panel || 'Not configured'}
+- Total Alarm Zones: ${zoneCount}
+
+Should you have any questions or require further assistance, please do not hesitate to contact us.
+
+Best regards,
+Gold Knight Tech
+Vancouver, BC | info@goldknighttech.com | www.goldknighttech.com`
     window.open(`mailto:?subject=Customer Report - ${customer.address_line}&body=${encodeURIComponent(body)}`)
     setActionOpen(false)
   }
 
   const sendSMS = () => {
     if (!customer) return
-    const msg = `GK Tech - ${customer.address_line}: ${customer.alarm_panel}, ${customer.zones?.length||0} zones`
+    // First download the PDF
+    generatePDF()
+    const zoneCount = customer.zones?.length || 0
+    const msg = `Gold Knight Tech - Report for ${customer.address_line}. Alarm: ${customer.alarm_panel||'N/A'}, ${zoneCount} zones. PDF report downloaded. Contact: info@goldknighttech.com`
     window.open(`sms:?body=${encodeURIComponent(msg)}`)
     setActionOpen(false)
   }
