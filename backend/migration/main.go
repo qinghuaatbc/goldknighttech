@@ -73,10 +73,10 @@ func main() {
 
 		for zk, desc := range c.Alarm.Zone {
 			if strings.HasPrefix(zk, "z") || strings.HasPrefix(zk, "zz") {
-				_, err := pool.Exec(context.Background(),
-					"INSERT INTO alarm_zones (customer_id, zone_key, description) VALUES ($1, $2, $3) ON CONFLICT (customer_id, zone_key) DO UPDATE SET description = $3",
-					customerID, zk, desc,
-				)
+			_, err := pool.Exec(context.Background(),
+				"INSERT INTO alarm_zones (customer_id, zone_key, description, lang) VALUES ($1, $2, $3, 'en') ON CONFLICT (customer_id, zone_key, lang) DO UPDATE SET description = $3",
+				customerID, zk, desc,
+			)
 				if err != nil {
 					log.Printf("  ERROR zone %s: %v", zk, err)
 				}
