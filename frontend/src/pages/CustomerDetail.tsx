@@ -194,7 +194,7 @@ ${footer}`
     if (!customer) return
     generatePDF()
     const msg = getReportText(true)
-    window.open(`sms:?body=${encodeURIComponent(msg)}`)
+    window.location.href = `sms:?body=${encodeURIComponent(msg)}`
     setActionOpen(false)
   }
 
