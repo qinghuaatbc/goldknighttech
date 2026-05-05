@@ -85,6 +85,76 @@ export default function CustomerDetail() {
     catch (err: any) { alert(err.message) }
   }
 
+  const getReportText = (forSMS = false) => {
+    if (!customer) return ''
+    const zones = customer.zones || []
+    const date = new Date().toLocaleDateString('en-CA')
+    const zoneLines = zones.map((z:any) => `     ${z.zone_key.padEnd(6)} ${z.description}`).join('\n')
+    const line = '─'.repeat(52)
+
+    const header = `
+  ┌────────────────────────────────────────────────────────┐
+  │                  GOLD KNIGHT TECH                       │
+  │            Smart Home Automation                        │
+  │                  Customer Report                        │
+  └────────────────────────────────────────────────────────┘`
+
+    const info = `
+  Date:        ${date}
+  Report ID:   ${customer.slug}
+
+  ┌─ Customer Information ─────────────────────────────────┐
+  │                                                        │
+  │  Address       ${customer.address_line.padEnd(36)}
+  │  City          ${(customer.city || '—').padEnd(36)}
+  │  Alarm Panel   ${(customer.alarm_panel || 'Not installed').padEnd(36)}
+  │                                                        │
+  └────────────────────────────────────────────────────────┘`
+
+    const zonesTitle = `\n  ┌─ Alarm Zones (${zones.length} total) ───────────────────────────┐`
+    const zonesFooter = `  └────────────────────────────────────────────────────────────┘`
+
+    const footer = `
+  ┌─ Gold Knight Tech ─────────────────────────────────────┐
+  │                                                        │
+  │  Thank you for choosing Gold Knight Tech,               │
+  │  Vancouver's trusted smart home partner since 2014.     │
+  │                                                        │
+  │  Gold Knight Tech                                       │
+  │  Vancouver, BC, Canada                                  │
+  │  info@goldknighttech.com                                │
+  │  goldknighttech.com                                     │
+  │                                                        │
+  │  Report generated: ${date}                             │
+  │                                                        │
+  └────────────────────────────────────────────────────────┘`
+
+    if (forSMS) {
+      const preview = zones.slice(0, 3).map((z:any) => `${z.zone_key} ${z.description}`).join(' · ')
+      return `*Gold Knight Tech* — Customer Report
+${line}
+  ${date}  |  ${customer.slug}
+  ${customer.address_line}
+  ${customer.city || ''}
+  Panel: ${customer.alarm_panel || 'N/A'}  |  Zones: ${zones.length}
+${preview ? `  ${preview}` : ''}
+${line}
+Download PDF attached.  info@goldknighttech.com`
+    }
+
+    return `${header}
+
+${info}
+
+${zonesTitle}
+│
+${zoneLines || '     (No zones configured)'}
+│
+${zonesFooter}
+
+${footer}`
+  }
+
   const generatePDF = () => {
     if (!customer) return
     const doc = new jsPDF()
@@ -114,36 +184,16 @@ export default function CustomerDetail() {
 
   const sendEmail = () => {
     if (!customer) return
-    // First download the PDF
     generatePDF()
-    const zoneCount = customer.zones?.length || 0
-    const body = `Dear Client,
-
-Thank you for choosing Gold Knight Tech, Vancouver's trusted smart home partner since 2014.
-
-Please find attached the customer report for ${customer.address_line} (${customer.city}).
-
-Report Summary:
-- Address: ${customer.address_line}
-- City: ${customer.city}
-- Alarm System: ${customer.alarm_panel || 'Not configured'}
-- Total Alarm Zones: ${zoneCount}
-
-Should you have any questions or require further assistance, please do not hesitate to contact us.
-
-Best regards,
-Gold Knight Tech
-Vancouver, BC | info@goldknighttech.com | www.goldknighttech.com`
-    window.open(`mailto:?subject=Customer Report - ${customer.address_line}&body=${encodeURIComponent(body)}`)
+    const body = getReportText(false)
+    window.open(`mailto:?subject=Customer Report — ${customer.address_line} (${customer.slug})&body=${encodeURIComponent(body)}`)
     setActionOpen(false)
   }
 
   const sendSMS = () => {
     if (!customer) return
-    // First download the PDF
     generatePDF()
-    const zoneCount = customer.zones?.length || 0
-    const msg = `Gold Knight Tech - Report for ${customer.address_line}. Alarm: ${customer.alarm_panel||'N/A'}, ${zoneCount} zones. PDF report downloaded. Contact: info@goldknighttech.com`
+    const msg = getReportText(true)
     window.open(`sms:?body=${encodeURIComponent(msg)}`)
     setActionOpen(false)
   }
